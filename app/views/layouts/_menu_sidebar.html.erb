@@ -1,0 +1,38 @@
+<nav id="sidebar-menu" class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li id="li-main">
+                <a href="<%= admin_path %>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+            </li>
+            <li id="li-pages">
+                <a href="<%= admin_pages_path %>"><i class="fa fa-book fa-fw"></i> Pages</a>
+            </li>
+            <li id="li-banners">
+                <a href="<%= admin_banners_path %>"><i class="fa fa-flag-o"></i> Banners Management</a>
+            </li>
+
+            <li id="li-events">
+                <a href="#"><i class="fa fa-calendar fa-fw"></i> Events</a>
+            </li>
+            <li id="li-users"><a href="<%= admin_users_path %>"><i class="fa fa-users fa-fw"></i> Users</a>
+
+              </li>
+            <li>
+                <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+        </ul>
+        <!-- /#side-menu -->
+    </div>
+    <!-- /.sidebar-collapse -->
+</nav>

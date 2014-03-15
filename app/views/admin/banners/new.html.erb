@@ -1,0 +1,79 @@
+<% content_for :page_style do %>
+    <!-- Start specific page styles -->
+
+    <!-- End specific page styles -->
+<% end %>
+<% content_for :page_content do %>
+    <div class="row">
+      <div class="col-lg-12">
+
+        <%= generate_breadcrumbs %>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <%= action_name.capitalize %> <%= controller_name.capitalize.singularize %>
+          </div>
+          <div class="panel-body">
+            <% if @banner.errors.any? %>
+                <div class="alert alert-danger">
+                  <ul>
+                    <% @banner.errors.full_messages.each do |err| %>
+                        <li><%= err %></li>
+                    <% end %>
+                  </ul>
+
+                </div>
+            <% end %>
+                <%= form_for(@banner, :as => :banner, :validate => true, :html => { :multipart => true }, :url => admin_banners_path) do |f| %>
+                <br/>
+                <fieldset>
+                <div class="form-group clearfix ">
+                  <%= f.label :title, "Title", :class => "col-md-2 control-label" %>
+                  <div class="col-md-8">
+                    <%= f.text_field :title, :class => "form-control input-md", :placeholder => "Title" %>
+
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+                  <%= f.label :caption, "Caption", :class => "col-md-2 control-label" %>
+                  <div class="col-md-8">
+                    <%= f.text_field :caption, :class => "form-control input-md", :placeholder => "Caption" %>
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+                  <%= f.label :url, "Link To", :class => "col-md-2 control-label" %>
+                  <div class="col-md-8">
+                    <%= f.text_field :url, :class => "form-control input-md", :placeholder => "Link to" %>
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+
+                  <div class="col-md-8 col-md-offset-2">
+                    <%= f.check_box :featured %> Is Featured?
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+
+                  <div class="col-md-8 col-md-offset-2">
+                    <%= f.check_box :activate %> Is Enabled?
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :banner, "Upload Banner", :class => "col-md-2 control-label" %>
+                  <div class="col-md-8">
+                    <%= f.file_field :banner %>
+                  </div>
+                </div>
+                </fieldset>
+                <div class="row col-md-12">
+                  <div class="pull-right">
+                    <a href="<%= url_for(:controller => controller_name, :action => 'index') %>" class="btn btn-default btn-sm">Cancel</a>
+                    <%= f.submit "Save", :class => "btn btn-primary btn-sm" %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

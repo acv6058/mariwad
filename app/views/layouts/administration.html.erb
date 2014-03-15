@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inbox Biz CMS</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <%= csrf_meta_tags %>
+     <!-- Core CSS - Include with every page -->
+  	<%= stylesheet_link_tag "css/bootstrap.min", media: "all" %>
+  	<%= stylesheet_link_tag "font-awesome/css/font-awesome", media: "all" %>
+  	
+    <!-- Page-Level Plugin CSS - Dashboard -->
+    <%= stylesheet_link_tag "css/plugins/morris/morris-0.4.3.min", media: "all" %>
+    <%= stylesheet_link_tag "css/plugins/timeline/timeline", media: "all" %>
+    <%= stylesheet_link_tag "css/plugins/dataTables/dataTables.bootstrap", media: "all" %>
+    <%= stylesheet_link_tag "css/bootstrap-datepicker", media: "all" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= stylesheet_link_tag "admin/sb-admin", media: "all" %>
+    
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-57-precomposed.png">
+
+    <%= yield(:page_style) %>
+<style>
+/*#sidebar-menu li.active{background:#418bca;}*/
+
+</style>
+</head>
+<body>
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Inbox Biz CMS</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                	
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    	<%= current_user.username %>
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="<%= admin_logout_user_path %>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+        </nav>
+        <!-- /.navbar-static-top -->
+        
+		<!-- start sidebar menu here -->
+        	<%= render "layouts/menu_sidebar" %>
+        <!-- end sidebar menu here -->
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><%= @title %></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- start page content here -->
+            <div id="page_content" class="row">
+            	<%= yield :page_content %>
+            </div>
+            <!-- end page content here -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+ 
+
+
+
+
+<%= javascript_include_tag "js/jquery-1.10.2.js" %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag 'ckeditor/ckeditor.js' %>
+<%= javascript_include_tag "js/bootstrap.min.js" %>
+<%= javascript_include_tag "js/plugins/metisMenu/jquery.metisMenu.js" %>
+<%= javascript_include_tag "js/plugins/morris/raphael-2.1.0.min.js" %>
+<%= javascript_include_tag "js/plugins/morris/morris.js" %>
+<%= javascript_include_tag "js/plugins/dataTables/jquery.dataTables.js" %>
+<%= javascript_include_tag "js/plugins/dataTables/dataTables.bootstrap.js" %>
+<%= javascript_include_tag "js/bootstrap-datepicker" %>
+<%= javascript_include_tag "admin/sb-admin.js" %>
+<%= yield(:page_scripts) %>
+<script>
+  $(function(){
+
+      <% if flash.any? %>
+          <% flash.each do |k,v| %>
+            $('#page_content').displayAlert('<%= k %>', '<%= v %>')
+          <% end %>
+      <% end %>
+      current_page = "<%= controller_name %>";
+      if($('#li-' + current_page).length > 0){
+          $('#li-' + current_page).addClass('active');
+      }
+
+  })
+</script>
+</body>
+</html>

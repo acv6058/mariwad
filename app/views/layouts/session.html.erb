@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= csrf_meta_tags %>
+	<title>Orani Water District | Login</title>
+
+    <!-- Core CSS - Include with every page -->
+     <!-- Core CSS - Include with every page -->
+  	<%= stylesheet_link_tag "css/bootstrap.min.css", media: "all" %>
+  	<%= stylesheet_link_tag "font-awesome/css/font-awesome.css", media: "all" %>
+  	
+	<%= stylesheet_link_tag "admin/sb-admin.css", media: "all" %>
+    
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-57-precomposed.png">
+	<style>
+		
+		.col-centered{
+		    float: none;
+		    margin: 0 auto ;
+		}
+		.col-centered img {
+			width:120px;
+		}
+	
+	</style>
+</head>
+
+<body>
+
+    <div class="container">
+    	<%= yield %>
+    </div>
+
+
+<!-- Core Scripts - Include with every page -->
+<%= javascript_include_tag "js/jquery-1.10.2.js" %>
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "js/bootstrap.min.js" %>
+<%= javascript_include_tag "js/plugins/metisMenu/jquery.metisMenu.js" %>
+
+
+<!-- SB Admin Scripts - Include with every page -->
+<%= javascript_include_tag "admin/sb-admin.js" %>
+<script>
+
+
+
+		
+	/* type can be either of the ff
+	 alert-success
+	 alert-info
+	 alert-warning
+	 alert-danger
+	*/
+	$.fn.displayAlert = function(type, msg){
+		if(type == ''){
+			type = 'alert-warning'; 
+		}
+		
+		aBox = '<div class="alert ' + type + ' alert-dismissable" style="margin-top:15px;">' +
+	            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' +
+	             msg +
+	        '</div>';
+	    this.prepend(aBox);
+	    $('.alert').fadeOut(1000)
+	};
+	
+	
+	$.fn.greenify = function() {
+	    this.css( "color", "green" );
+	};
+</script>
+</body>
+
+</html>
