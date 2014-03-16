@@ -12,12 +12,17 @@ class Page < ActiveRecord::Base
 
   def add_default_page_url
     url = ''
-    if !page_id.blank?
+    if is_root == true
+      self.page_url = 'home'
+    else
+      if !page_id.blank?
       parent = Page.find(page_id)
       url += "#{parent.page_url}/"
+      end
+      url += transliterate_link(page_title)
+      self.page_url = url
     end
-    url += transliterate_link(page_title)
-    self.page_url = url
+    
   end
 
   def transliterate_link(str)
