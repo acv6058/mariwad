@@ -173,10 +173,12 @@
                                     <div class="carousel-caption" style="position:absolute;top:30px;">
                                         <div class="carousel-text">
                                            <% unless item.title.nil? %><h1 class="animated fadeInDownBig"><%= item.title %></h1><% end %>
+                                           <% unless item.caption.nil? %>
                                            <ul class="list-unstyled carousel-list">
-                                               <li class="animated bounceInLeft" style="padding:10px;"><span style="">Built with Bootstrap</span></li>
+                                               <li class="animated bounceInLeft" style="padding:10px;"><span style=""><%= item.caption %></span></li>
                                                
                                            </ul>
+                                           <% end %>
                                        </div>
                                     </div>
                                 
