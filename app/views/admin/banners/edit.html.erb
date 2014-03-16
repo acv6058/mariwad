@@ -59,10 +59,23 @@
                   </div>
                   <div class="form-group clearfix">
                     <%= f.label :banner, "Upload Banner", :class => "col-md-2 control-label" %>
-                    <div class="col-md-8">
-                      <%= image_tag(@banner.banner.url(:thumb)) %><br/><br/>
-                      <%= f.file_field :banner %>
-                    </div>
+	                  <div class="col-md-8">
+	                  	<div class="fileinput fileinput-new" data-provides="fileinput">
+						  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 120px;">
+						  	<%= image_tag(@banner.banner.url(:thumb))%>
+						  </div>
+						  <div>
+						    <span class="btn btn-default btn-file">
+						    	<span class="fileinput-new">Select image</span>
+						    	<span class="fileinput-exists">Change</span>
+						    	<%= f.file_field :banner %>
+					    	</span>
+					    	<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+						  </div>
+						</div>
+	                    
+	                  </div>
+	                </div>
                   </div>
 	            <div class="form-group clearfix">
 	              <% @pageSet = Page.where("activate = ?", true )%>
