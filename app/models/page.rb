@@ -1,6 +1,7 @@
 class Page < ActiveRecord::Base
   has_many :pages, :dependent => :destroy
-  has_many :banners
+  has_many :page_banners, :dependent => :destroy
+  has_many :banners, :through => :page_banners
   belongs_to  :user, :class_name => 'User', :foreign_key => :last_updated_by
   before_validation   :add_default_page_url
   validates :page_title, :presence => true, :on => :save

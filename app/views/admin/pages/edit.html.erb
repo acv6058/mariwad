@@ -96,7 +96,7 @@
                   <% @pageSet = Page.where("activate = ? AND id <> ?", true, @page.id )%>
                   <%= f.label :page_id, "Parent", :class => "col-md-2 control-label" %>
                   <div class="col-md-5">
-                    <%= f.collection_select :page_id, @pageSet, :id, :page_title, {:include_blank => true}, {:class => 'form-control'} %>
+                    <%= f.collection_select :page_id, @pageSet, :id, :page_title, {:include_blank => true}, {:class => 'selectpicker'} %>
                   </div>
                 </div>
                 <div class="form-group clearfix">

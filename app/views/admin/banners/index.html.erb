@@ -23,7 +23,6 @@
                     <thead>
                     <tr>
                       <th>Banner</th>
-                      <th class="text-center">Is Featured?</th>
                       <th class="text-center">Is Enabled?</th>
                       <th class="text-center">Last Updated By</th>
                       <th class="text-center">Last Modified At</th>
@@ -34,13 +33,6 @@
                     <% @banners.each do |b| %>
                         <tr data-id="<%= b.id.to_s %>" data-resource="<%= controller_name %>">
                           <td><a href="<%= b.banner.url(:large) %>" target="_blank"><%= image_tag(b.banner.url(:thumb)) %></a></td>
-                          <td class="text-center">
-                            <% if b.featured %>
-                                <button type="button" class="btn btn-success btn-circle toggle-activation"><i class="fa fa-check"></i></button>
-                            <% else %>
-                                <button type="button" class="btn btn-danger btn-circle toggle-activation"><i class="fa fa-times"></i></button>
-                            <% end %>
-                          </td>
                           <td class="text-center">
                             <% if b.activate %>
                                 <button type="button" class="btn btn-success btn-circle toggle-activation"><i class="fa fa-check"></i></button>

@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307125236) do
+ActiveRecord::Schema.define(version: 20140316072632) do
 
   create_table "banners", force: true do |t|
-    t.string   "title"
-    t.string   "caption"
-    t.string   "url"
     t.string   "banner_file_name"
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
-    t.boolean  "featured"
-    t.boolean  "activate"
+    t.boolean  "activate",            default: true
     t.integer  "last_updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.string   "caption"
+    t.string   "url"
+    t.boolean  "featured"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 20140307125236) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "page_banners", force: true do |t|
+    t.integer  "banner_id"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", force: true do |t|
     t.string   "page_title"

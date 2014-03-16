@@ -14,9 +14,10 @@ WaterDistrict::Application.routes.draw do
 		resources :pages
     resources :users
     resources :banners
+    match 'commons/update' => 'main#common_update', :via => :put, :as => 'common_update'
   end
-  match '/' => 'admin/main#index', :via => :get
-  root :to => 'admin/main#index'
+  match '/' => 'home#index', :via => :get
+  root :to => 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

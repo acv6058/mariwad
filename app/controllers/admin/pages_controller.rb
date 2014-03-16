@@ -13,8 +13,6 @@ class Admin::PagesController < ApplicationController
   
   def show
 
-    @page = Page.get_page(params[:id])
-    
   end
 
   def new

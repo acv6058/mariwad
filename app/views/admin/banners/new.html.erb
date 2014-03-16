@@ -48,7 +48,7 @@
                 <div class="form-group clearfix">
 
                   <div class="col-md-8 col-md-offset-2">
-                    <%= f.check_box :featured %> Is Featured?
+                    <%= f.check_box :featured %> Is Featured? <small>(If ticked will be displayed on the main page)</small>
                   </div>
                 </div>
                 <div class="form-group clearfix">
@@ -58,12 +58,31 @@
                   </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group clearfix">
                   <%= f.label :banner, "Upload Banner", :class => "col-md-2 control-label" %>
                   <div class="col-md-8">
-                    <%= f.file_field :banner %>
+                  	<div class="fileinput fileinput-new" data-provides="fileinput">
+					  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+					  <div>
+					    <span class="btn btn-default btn-file">
+					    	<span class="fileinput-new">Select image</span>
+					    	<span class="fileinput-exists">Change</span>
+					    	<%= f.file_field :banner %>
+				    	</span>
+				    	<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+					  </div>
+					</div>
+                    
                   </div>
                 </div>
+	            <div class="form-group clearfix">
+	              <% @pageSet = Page.where("activate = ?", true )%>
+	              <%= label :page_ids, "Apply to which pages?", :class => "col-md-2 control-label" %>
+	              <div class="col-md-4">
+	              	<%= collection_select(:banner, :page_ids, Page.all,
+                  :id, :page_title, {:selected => @banner.page_ids, :include_blank => true}, {:multiple => true, :class => 'selectpicker'}) %>
+	              </div>
+	            </div>
                 </fieldset>
                 <div class="row col-md-12">
                   <div class="pull-right">

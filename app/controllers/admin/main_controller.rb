@@ -11,4 +11,16 @@ class Admin::MainController < ApplicationController
     
 	end
 	
+	def common_update
+	  this = params[:target].classify.constantize
+	  obj = this.find(params[:id])
+	  obj.toggle(params[:scope].to_sym)
+	  obj.save
+	  redirect_to :controller => params[:target], :action => "index"
+	   
+	  
+	  
+	  
+	end
+	
 end

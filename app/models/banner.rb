@@ -1,7 +1,8 @@
 class Banner < ActiveRecord::Base
   require 'iconv'
   belongs_to :user, :class_name => 'User', :foreign_key => :last_updated_by
-  belongs_to :page
+  has_many :page_banners, :dependent => :destroy
+  has_many :pages, :through => :page_banners
   has_attached_file :banner, :styles => {
       :large => "1280x400#",
       :medium => "960x300#",

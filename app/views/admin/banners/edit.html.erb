@@ -48,7 +48,7 @@
                   <div class="form-group clearfix">
 
                     <div class="col-md-8 col-md-offset-2">
-                      <%= f.check_box :featured %> Is Featured?
+                      <%= f.check_box :featured %> Is Featured? <small class="text-info">(If ticked will be displayed on the main page)</small>
                     </div>
                   </div>
                   <div class="form-group clearfix">
@@ -57,13 +57,21 @@
                       <%= f.check_box :activate %> Is Enabled?
                     </div>
                   </div>
-
-                  <div class="form-group">
+                  <div class="form-group clearfix">
                     <%= f.label :banner, "Upload Banner", :class => "col-md-2 control-label" %>
                     <div class="col-md-8">
+                      <%= image_tag(@banner.banner.url(:thumb)) %><br/><br/>
                       <%= f.file_field :banner %>
                     </div>
                   </div>
+	            <div class="form-group clearfix">
+	              <% @pageSet = Page.where("activate = ?", true )%>
+	              <%= label :page_ids, "Apply to which pages?", :class => "col-md-2 control-label" %>
+	              <div class="col-md-4">
+	              	<%= collection_select(:banner, :page_ids, Page.all,
+                  :id, :page_title, {:selected => @banner.page_ids, :include_blank => true}, {:multiple => true, :class => 'selectpicker'}) %>
+	              </div>
+	            </div>
                 </fieldset>
                 <div class="row col-md-12">
                   <div class="pull-right">

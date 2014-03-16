@@ -17,5 +17,5 @@
 .project
 /.idea
 config/s3.yml
-
+public/assets/*
 #config/database.yml

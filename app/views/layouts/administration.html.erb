@@ -19,7 +19,8 @@
     <%= stylesheet_link_tag "css/plugins/timeline/timeline", media: "all" %>
     <%= stylesheet_link_tag "css/plugins/dataTables/dataTables.bootstrap", media: "all" %>
     <%= stylesheet_link_tag "css/bootstrap-datepicker", media: "all" %>
-    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= stylesheet_link_tag "css/bootstrap-select/bootstrap-select.min", media: "all" %>
+    <%= stylesheet_link_tag "css/jasny-bootstrap.min", media: "all" %>
     <%= stylesheet_link_tag "admin/sb-admin", media: "all" %>
     
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
@@ -44,12 +45,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Inbox Biz CMS</a>
+                <a class="navbar-brand" href="/admin">InboxBiz CMS</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <!-- /.dropdown -->
+                <li style="border-right:1px solid #ccc;"><a href="/"><i class="fa fa-user fa-eye"></i> View Website</a></li>
                 <li class="dropdown">
                 	
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -109,11 +111,14 @@
 <%= javascript_include_tag "js/plugins/dataTables/jquery.dataTables.js" %>
 <%= javascript_include_tag "js/plugins/dataTables/dataTables.bootstrap.js" %>
 <%= javascript_include_tag "js/bootstrap-datepicker" %>
+<%= javascript_include_tag "js/bootstrap-select/bootstrap-select.min" %>
+<%= javascript_include_tag "js/jasny-bootstrap.min" %>
 <%= javascript_include_tag "admin/sb-admin.js" %>
 <%= yield(:page_scripts) %>
 <script>
   $(function(){
-
+	  $('.selectpicker').selectpicker();
+	  $('.fileinput').fileinput();
       <% if flash.any? %>
           <% flash.each do |k,v| %>
             $('#page_content').displayAlert('<%= k %>', '<%= v %>')

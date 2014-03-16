@@ -31,26 +31,27 @@
                                 </thead>
                                 <tbody>
                                     <% @pages.each do |p| %>
-                                    <tr data-id="<%= p.id.to_s %>" data-resource="<%= controller_name %>">
-                                        <td><%= p.page_title %></td>
-                                        <td class="text-center"><%= (p.last_updated_by.blank? ? '-': p.user.username )%></td>
-                                        <td class="text-center">
-                                          <% if p.activate %>
-                                              <button type="button" class="btn btn-success btn-circle toggle-activation"><i class="fa fa-check"></i></button>
-                                          <% else %>
-                                              <button type="button" class="btn btn-danger btn-circle toggle-activation"><i class="fa fa-times"></i></button>
-                                          <% end %>
-                                        </td>
-                                        <td class="text-center">
-                                          <%= time_ago_in_words(p.updated_at) %>
-                                        </td>
-                                        <td class="text-center">
-                                            <a>
-                                              <a href="<%= url_for(:controller => controller_name, :action => "edit", :id => p) %>" class="btn btn-warning btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
-                                              <a href="<%= url_for(:controller => controller_name, :action => "destroy", :id => p) %>" class="btn btn-danger btn-sm" data-confirm="Are you sure you want to continue this action?" data-method="delete" title="Delete"><i class="fa fa-trash-o"></i></a>
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    	<tr data-id="<%= p.id.to_s %>" data-resource="<%= controller_name %>">
+	                                        <td><%= p.page_title %></td>
+	                                        <td class="text-center"><%= (p.last_updated_by.blank? ? '-': p.user.username )%></td>
+	                                        <td class="text-center" data-object="<%= {:scope => 'activate', :value => p.activate, :target => controller_name }.to_json %>">
+	                                          <% if p.activate %>
+												<a href="<%= admin_common_update_path(:id => p.id, :scope => 'activate', :target => controller_name) %>" class="btn btn-success btn-circle toggle-activation" data-method='put'><i class="fa fa-check"></i></a>
+	                                          <% else %>
+												<a href="<%= admin_common_update_path(:id => p.id, :scope => 'activate', :target => controller_name)%>" class="btn btn-danger btn-circle toggle-activation" data-method='put'><i class="fa fa-times"></i></a>
+	                                          <% end %>
+	                                          </a>
+	                                        </td>
+	                                        <td class="text-center">
+	                                          <%= time_ago_in_words(p.updated_at) %>
+	                                        </td>
+	                                        <td class="text-center">
+	                                            
+	                                              <a href="<%= url_for(:controller => controller_name, :action => "edit", :id => p) %>" class="btn btn-warning btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
+	                                              <a href="<%= url_for(:controller => controller_name, :action => "destroy", :id => p) %>" class="btn btn-danger btn-sm" data-confirm="Are you sure you want to continue this action?" data-method="delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+	                                            
+	                                        </td>
+	                                    </tr>
                                     <% end %>
                                 </tbody>
                             </table>
