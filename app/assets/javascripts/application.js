@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require js/jquery-1.10.2
 //= require jquery_ujs
 //= require ckeditor/override
 //= require ckeditor/init
