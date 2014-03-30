@@ -18,9 +18,6 @@ class Admin::MainController < ApplicationController
 	  obj.save
 	  redirect_to :controller => params[:target], :action => "index"
 	   
-	  
-	  
-	  
 	end
 	
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316115922) do
+ActiveRecord::Schema.define(version: 20140330124926) do
 
   create_table "banners", force: true do |t|
     t.string   "banner_file_name"
@@ -43,6 +43,33 @@ ActiveRecord::Schema.define(version: 20140316115922) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
+  create_table "contacts", force: true do |t|
+    t.string   "company_name"
+    t.string   "address"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "email"
+    t.string   "website"
+    t.string   "business_hours_weekdays"
+    t.string   "business_hours_saturday"
+    t.string   "business_hours_sunday"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enquiries", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.string   "ip_address"
+    t.datetime "sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "page_banners", force: true do |t|
     t.integer  "banner_id"
     t.integer  "page_id"
@@ -70,6 +97,7 @@ ActiveRecord::Schema.define(version: 20140316115922) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_root",         default: false
+    t.boolean  "is_contact",      default: false
   end
 
   create_table "role_permissions", force: true do |t|

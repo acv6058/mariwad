@@ -48,7 +48,7 @@
 	                                        <td class="text-center">
 	                                            
 	                                              <a href="<%= url_for(:controller => controller_name, :action => "edit", :id => p) %>" class="btn btn-warning btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
-	                                              <a href="<%= url_for(:controller => controller_name, :action => "destroy", :id => p) %>" class="btn btn-danger btn-sm" <% if p.is_root? %>disabled='disabled'<% end %> data-confirm="Are you sure you want to continue this action?" data-method="delete" title="Delete"><i class="fa fa-trash-o"></i></a>
+	                                              <a href="<%= url_for(:controller => controller_name, :action => "destroy", :id => p) %>" class="btn btn-danger btn-sm" <% if p.is_root? || p.is_contact? %>disabled='disabled'<% end %> data-confirm="Are you sure you want to continue this action?" data-method="delete" title="Delete"><i class="fa fa-trash-o"></i></a>
 	                                            
 	                                        </td>
 	                                    </tr>

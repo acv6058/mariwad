@@ -7,5 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 users = User.create!([{ :username => 'admin',  :first_name => "Admin", :last_name => "User", :email => 'user@example.com', :password => 'password1234', :password_confirmation => 'password1234', :role_id => 1, :status => 1}])
 roles = Role.create!([{ :code => 'Adm',  :name => "Admin", :is_active => true}, { :code => 'Ed',  :name => "Editor", :is_active => true}])
-page = Page.create!({:page_title => 'Home', :page_url => '/', :body => '<p>Lorem ipsum dolor sit amet</p>', :activate => true ,:is_root => true})
+homepage = Page.create!({:page_title => 'Home', :page_url => '/', :body => '<p>Lorem ipsum dolor sit amet</p>', :activate => true ,:is_root => true})
+contactpage = Page.create!({:page_title => 'Contact Us', :page_url => 'contact-us', :body => '', :activate => true ,:is_contact => true})
 

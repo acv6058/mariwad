@@ -10,7 +10,7 @@ gem 'iconv'
 gem 'ckeditor'
 gem 'paperclip','~> 3.5.3'
 gem 'aws-s3'
-gem "aws-sdk"
+gem 'aws-sdk'
 # Use sqlite3 as the database for Active Record
 
 group :development do
@@ -50,9 +50,23 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-
+gem 'geocoder'
+gem 'gmaps4rails'
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+group :test do
+  gem 'capybara', '~> 2.0.1'
+  gem 'factory_girl_rails', '~> 4.1.0'
+  gem 'growl', '~> 1.0.3'
+  gem 'guard-spork', '~> 1.4.0'
+  gem 'guard-rspec', '~> 2.3.1'
+  gem 'rspec-rails', '~> 2.12.2'
+  gem 'shoulda-matchers', '~> 1.4.2'
+  gem 'spork', '~> 0.9.2'
 end
 # Use unicorn as the app server
 # gem 'unicorn'

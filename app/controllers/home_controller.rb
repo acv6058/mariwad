@@ -3,7 +3,8 @@ class HomeController < ApplicationController
   
   def index
     @banners = Banner.where('featured = ? AND activate = ?', true, true)
-    #render :json => @banners
+    @page = Page.root
+
     
   end
 end

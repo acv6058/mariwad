@@ -16,7 +16,9 @@ WaterDistrict::Application.routes.draw do
     resources :banners
     match 'commons/update' => 'main#common_update', :via => :put, :as => 'common_update'
   end
-  match '/' => 'home#index', :via => :get
+  match '/' => 'home#index', via: :get
+  match '/contact-us' => 'pages#contacts', via: :get
+  match '/(:page_url)' => 'pages#show', via: :get, constraints: { :page_url => /.*/ }
   root :to => 'home#index'
 
   # Example of regular route:

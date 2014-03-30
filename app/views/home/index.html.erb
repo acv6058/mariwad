@@ -1,0 +1,19 @@
+<% content_for :page_styles do %>
+<style>
+<% unless @page.page_styles.nil? || !@page.page_styles.blank? %>
+<%= raw(@page.page_styles) %>
+<% end %>
+</style>
+<% end %>
+<% content_for :page_content do %>
+    <%= raw(@page.body) %>
+
+<% end %>
+
+<% content_for :page_scripts do %>
+<script type="text/javascript">
+  $(function(){
+
+  });
+</script>
+<% end %>

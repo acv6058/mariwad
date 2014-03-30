@@ -103,17 +103,17 @@
 
 <%= javascript_include_tag "js/jquery-1.10.2.js" %>
 <%= javascript_include_tag "application" %>
+<%= javascript_include_tag "admin/sb-admin.js" %>
 <%= javascript_include_tag 'ckeditor/ckeditor.js' %>
-<%= javascript_include_tag "js/bootstrap.min.js" %>
 <%= javascript_include_tag "js/plugins/metisMenu/jquery.metisMenu.js" %>
 <%= javascript_include_tag "js/plugins/morris/raphael-2.1.0.min.js" %>
 <%= javascript_include_tag "js/plugins/morris/morris.js" %>
 <%= javascript_include_tag "js/plugins/dataTables/jquery.dataTables.js" %>
 <%= javascript_include_tag "js/plugins/dataTables/dataTables.bootstrap.js" %>
 <%= javascript_include_tag "js/bootstrap-datepicker" %>
-<%= javascript_include_tag "js/bootstrap-select/bootstrap-select.min" %>
+<%= javascript_include_tag "js/bootstrap-select/bootstrap-select" %>
 <%= javascript_include_tag "js/jasny-bootstrap.min" %>
-<%= javascript_include_tag "admin/sb-admin.js" %>
+
 <%= yield(:page_scripts) %>
 <script>
   $(function(){
