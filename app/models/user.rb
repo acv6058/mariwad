@@ -57,6 +57,14 @@ class User < ActiveRecord::Base
     return full_name
   end
 
+  def is_admin?
+    self.role.name == 'Admin'
+  end
+
+  def is_editor?
+    self.role.name == 'Editor'
+  end
+
   def encrypt_password(pass)
     BCrypt::Engine.hash_secret(pass, password_salt)
   end

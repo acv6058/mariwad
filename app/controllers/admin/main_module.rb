@@ -49,11 +49,11 @@ module Admin::MainModule
   end
   
   def is_admin?
-    current_user.role.name == "Admin"
+    current_user.is_admin?
   end
   
   def is_editor?
-    current_user.role.name == "Editor"
+    current_user.is_editor?
   end
   
   

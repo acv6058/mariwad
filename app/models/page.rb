@@ -68,7 +68,7 @@ class Page < ActiveRecord::Base
   def get_ancestors(page_id)
     parent = Page.find(page_id)
     unless parent.nil?
-      @ancestors << parent
+      collected_ancestors << parent
       if parent.has_parent?
         get_ancestors(parent.page_id)
       end
@@ -91,8 +91,5 @@ class Page < ActiveRecord::Base
     return s
   end
 
-  def self.get_page(param)
-    Page.where()
-  end
 
 end

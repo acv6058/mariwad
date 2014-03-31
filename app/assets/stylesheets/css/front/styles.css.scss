@@ -245,8 +245,14 @@ h3.col-header {}
 @media (max-width: 767px) {
 
     .carousel {
-        height: 260px;
+        height: 180px;
     }
+  .carousel .item {
+    height: 180px;
+  }
+  .carousel-control {
+    height: 180px;
+  }
 
     .carousel .carousel-inner {
         height: 100%;
@@ -254,14 +260,23 @@ h3.col-header {}
     }
     .fill img {
         width: 100%;
-        height:240px;
+        height:180px;
     }
 }
 /* Responsive Styles */
 @media (max-width: 960px) {
-
+   #map-canvas {
+     height:200px;
+     padding-bottom: 20px;
+   }
     .carousel {
         height: 260px;
+    }
+    .carousel .item {
+      height: 260px;
+    }
+    .carousel-control {
+      height: 260px;
     }
     .carousel .carousel-inner {
         height: 100%;
