@@ -2,9 +2,10 @@ class PagesController < ApplicationController
   layout 'pages'
 
   def show
-    page = Page.active.where('page_url = ?', params[:page_url]).first
+    @page = Page.active.where('page_url = ?', params[:page_url]).first
 
-    #render :json => page
+
+    #render :json => @page.has_parent?
   end
 
   def contacts

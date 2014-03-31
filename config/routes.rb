@@ -18,7 +18,7 @@ WaterDistrict::Application.routes.draw do
   end
   match '/' => 'home#index', via: :get
   match '/contact-us' => 'pages#contacts', via: :get
-  match '/(:page_url)' => 'pages#show', via: :get, constraints: { :page_url => /.*/ }
+  match '/(:page_url)' => 'pages#show', via: :get, constraints: { :page_url => /.*/ }, as: 'pages'
   root :to => 'home#index'
 
   # Example of regular route:
