@@ -10,6 +10,7 @@ WaterDistrict::Application.routes.draw do
   	match 'login' => "session#create", :via => :post,	:as => "login_user"
   	match 'logout' => "session#destroy", :via => :get,	:as => "logout_user"
   	match '/' => 'main#index', :via => :get
+
 		match '/index' => 'main#index', :via => :get
 		resources :pages
     resources :users
@@ -17,6 +18,7 @@ WaterDistrict::Application.routes.draw do
     match 'commons/update' => 'main#common_update', :via => :put, :as => 'common_update'
   end
   match '/' => 'home#index', via: :get
+  match '/home' => 'main#index', :via => :get
   match '/contact-us' => 'pages#contacts', via: :get
   match '/(:page_url)' => 'pages#show', via: :get, constraints: { :page_url => /.*/ }, as: 'pages'
   root :to => 'home#index'
