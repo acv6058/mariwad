@@ -5,6 +5,6 @@ class Role < ActiveRecord::Base
   end
 
   def is_editor?
-    self.role.name == 'Admin'
+    self.role.name == 'Editor'
   end
 end

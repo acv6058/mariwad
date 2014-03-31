@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   include Admin::MainModule
   before_filter :set_title
-  #efore_filter :check_role, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :check_role, :only => [:new, :edit, :create, :update, :destroy]
 
   def check_role
     if is_editor?
