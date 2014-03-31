@@ -35,7 +35,7 @@ module ApplicationHelper
       elem += '</ul>'
       elem.html_safe
     else
-      link_to section.page_title, section.page_url
+      link_to section.page_title, pages_path(section.page_url)
     end
   end
 
