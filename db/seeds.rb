@@ -25,3 +25,18 @@ if contactpage.nil?
 contactpage = Page.create!({:page_title => 'Contact Us', :page_url => 'contact-us', :body => '', :activate => true ,:is_contact => true})
 end
 
+contact = Contact.first
+if contact.nil?
+  contact = Contact.create!({
+                              :company_name => 'Inbox Business Solutions',
+                              :street => 'Centro Uno',
+                              :city => 'Orani',
+                              :province => 'Bataan',
+                              :country => 'PH',
+                              :phone1 => '1111111',
+                              :email => 'sample@email.com',
+                              :business_hours_weekdays => 'Monday - Friday 8:00AM-5:00PM',
+                              :business_hours_saturday => 'Closed',
+                              :business_hours_sunday => 'Closed'
+                            })
+end

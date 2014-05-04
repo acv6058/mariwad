@@ -15,6 +15,7 @@ WaterDistrict::Application.routes.draw do
 		resources :pages
     resources :users
     resources :banners
+    resources :contacts
     match 'commons/update' => 'main#common_update', :via => :put, :as => 'common_update'
   end
   match '/' => 'home#index', via: :get

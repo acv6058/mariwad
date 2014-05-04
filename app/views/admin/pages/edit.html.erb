@@ -87,12 +87,6 @@
                   </div>
                 </div>
                 <div class='form-group clearfix'>
-                  <%= f.label :link_forward, 'Link Forward', :class => 'col-md-2 control-label' %>
-                  <div class='col-md-8'>
-                    <%= f.text_field :link_forward, :class => 'form-control input-md', :placeholder => 'Link Forward' %>
-                  </div>
-                </div>
-                <div class='form-group clearfix'>
                   <% @pageSet = Page.where('activate = ? AND id <> ?', true, @page.id )%>
                   <%= f.label :page_id, 'Parent', :class => 'col-md-2 control-label' %>
                   <div class='col-md-5'>

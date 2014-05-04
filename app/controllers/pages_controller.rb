@@ -10,5 +10,6 @@ class PagesController < ApplicationController
 
   def contacts
     @page = Page.contact
+    @contact = Contact.first
   end
 end

@@ -25,11 +25,11 @@
             <li id="li-events">
                 <a href="#"><i class="fa fa-calendar fa-fw"></i> Events</a>
             </li>
-            <li id="li-users"><a href="<%= admin_users_path %>"><i class="fa fa-users fa-fw"></i> Users</a>
-
-              </li>
-            <li>
-                <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            <li id="li-users">
+              <a href="<%= admin_users_path %>"><i class="fa fa-users fa-fw"></i> Users</a>
+            </li>
+            <li id="li-contacts">
+                <a href="<%= admin_contact_path(Contact.first) %>"><i class="fa fa-suitcase fa-fw"></i> Company</a>
             </li>
         </ul>
         <!-- /#side-menu -->

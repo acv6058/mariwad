@@ -4,7 +4,5 @@ class HomeController < ApplicationController
   def index
     @banners = Banner.where('featured = ? AND activate = ?', true, true)
     @page = Page.root
-
-    
   end
 end

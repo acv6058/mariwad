@@ -51,6 +51,12 @@ $(function() {
     $('.field_with_errors').each(function(index, elem){
         $(elem).addClass('has-error')
     })
+    required_fields = $('.required');
+    if (required_fields.length > 0){
+        required_fields.each(function(idx, val){
+            $(val).parent().addClass('test')
+        })
+    }
 
 
 

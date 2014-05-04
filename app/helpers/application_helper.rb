@@ -45,4 +45,13 @@ module ApplicationHelper
 
   end
 
+  def brand_logo_src
+    Contact.first.logo.url(:thumb)
+  end
+
+  def country_name(country_code)
+    country = Carmen::Country.coded(country_code)
+    country.name
+  end
+
 end
