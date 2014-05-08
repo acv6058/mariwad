@@ -32,7 +32,13 @@
 <!-- end header here -->
 
 <!--contents starts here -->
-<div id="page_content" class="container" style="margin-top: 20px;margin-bottom:20px;">
+<% if @banners.any? %>
+    <%= render 'layouts/main_banners'  %>
+<hr class="page-divider">
+<% else %>
+<div style="margin-top: 20px;"></div>
+<% end %>
+<div id="page_content" class="container" style="margin-bottom:20px;">
 
 <%= yield :page_content %>
 

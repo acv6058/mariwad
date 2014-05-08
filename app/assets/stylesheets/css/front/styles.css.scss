@@ -247,6 +247,13 @@ h3.col-header {}
     padding-right: 20px;
 }
 
+.page-divider {
+  margin-top: -1px;
+  height: 2px;
+  background: #696969;
+  background: -webkit-gradient(linear, 0 0, 75% 0, from(white), to(white), color-stop(75%, #696969));
+}
+
 /* Responsive Styles */
 @media (max-width: 767px) {
 
