@@ -2,7 +2,7 @@
 	<ul class="nav">
 	  <% if @page.has_parent? %>
 	  	  <% parent = @page.ancestors.first %>
-	  	  <% parent.pages.each do |page| %>
+	  	  <% parent.pages.active.each do |page| %>
 	  	  <li class="<%= page == @page ? 'active': '' %>"><%= link_to page.page_title, pages_path(page.page_url), title: page.page_title %></li>
 		  <% end %>
 	  <% else %>
