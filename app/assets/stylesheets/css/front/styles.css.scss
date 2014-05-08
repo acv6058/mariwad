@@ -248,10 +248,13 @@ h3.col-header {}
 }
 
 .page-divider {
-  margin-top: -1px;
-  height: 2px;
-  background: #696969;
-  background: -webkit-gradient(linear, 0 0, 75% 0, from(white), to(white), color-stop(75%, #696969));
+  margin-top: -2px;
+//  height: 2px;
+//  background: #696969;
+//  background: -webkit-gradient(linear, 0 0, 75% 0, from(white), to(white), color-stop(75%, #696969));
+  -webkit-box-shadow: -6px 4px 6px 0px rgba(0,0,0,0.49);
+  -moz-box-shadow: -6px 4px 6px 0px rgba(0,0,0,0.49);
+  box-shadow: -6px 4px 6px 0px rgba(0,0,0,0.49);
 }
 
 /* Responsive Styles */

@@ -1,12 +1,14 @@
+<% if @banners.any? %>
 <div id="myCarousel" class="carousel slide">
 
   <!-- Indicators -->
+  <% if @banners.size > 1 %>
   <ol class="carousel-indicators">
     <% @banners.each_with_index do |banner, index|%>
         <li data-target="#myCarousel" data-slide-to="<%= index.to_s %>" <% if banner == @banners.first %>class="active"<% end %>></li>
     <% end %>
   </ol>
-
+  <% end %>
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <% @banners.each_with_index do |item, index|%>
@@ -30,11 +32,14 @@
   </div>
 
   <!-- Controls -->
+  <% if @banners.size > 1 %>
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
+  <% end %>
 
 </div>
+<% end %>
