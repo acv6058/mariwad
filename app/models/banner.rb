@@ -4,8 +4,8 @@ class Banner < ActiveRecord::Base
   has_many :page_banners, :dependent => :destroy
   has_many :pages, :through => :page_banners
   has_attached_file :banner, :styles => {
-      :large => "1280x400#",
-      :medium => "960x300#",
+      :large => "1280x400>",
+      :medium => "960x300>",
       :thumb => "120x50>"
   },
   # :url  => '/images/banners/:id/:style/:basename.:extension',
