@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(version: 20140504114516) do
 
   create_table "banners", force: true do |t|
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.boolean  "activate",            default: true
-    t.integer  "last_updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "title"
     t.string   "caption"
     t.string   "url"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
     t.boolean  "featured"
+    t.boolean  "activate"
+    t.integer  "last_updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ckeditor_assets", force: true do |t|
