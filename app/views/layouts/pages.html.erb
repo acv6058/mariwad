@@ -2,11 +2,7 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <meta name="keyword" content="">
+  <%= render 'shared/meta_info' %>
   <%= csrf_meta_tags %>
   <title>Mariveles Water District</title>
 
@@ -40,7 +36,7 @@
 <% end %>
 <div id="page_content" class="container" style="margin-bottom:20px;">
 
-<%= yield :page_content %>
+<%= yield %>
 
 </div>
 <!--contents ends here -->

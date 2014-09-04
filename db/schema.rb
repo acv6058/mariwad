@@ -11,20 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504114516) do
+ActiveRecord::Schema.define(version: 20140904104740) do
 
-  create_table "banners", force: true do |t|
+  create_table "albums", force: true do |t|
     t.string   "title"
-    t.string   "caption"
-    t.string   "url"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.boolean  "featured"
-    t.boolean  "activate"
+    t.boolean  "is_active"
+    t.integer  "display_order"
     t.integer  "last_updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "banners", force: true do |t|
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.boolean  "activate",            default: true
+    t.integer  "last_updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "caption"
+    t.string   "url"
+    t.boolean  "featured"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -105,6 +114,7 @@ ActiveRecord::Schema.define(version: 20140504114516) do
     t.datetime "updated_at"
     t.boolean  "is_root",         default: false
     t.boolean  "is_contact",      default: false
+    t.boolean  "is_full_page",    default: false
   end
 
   create_table "role_permissions", force: true do |t|
