@@ -20,7 +20,35 @@ module WaterDistrict
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-    
+
     config.assets.initialize_on_precompile = false
+
+    config.time_zone = 'Asia/Taipei'
+
+    config.encoding = "utf-8"
+
+    # Configure sensitive parameters which will be filtered from the log file.
+    config.filter_parameters += [:password, :password_confirmation, :card_number, :card_expiry_month, :card_expiry_year]
+
+    # Enable escaping HTML in JSON.
+    config.active_support.escape_html_entities_in_json = true
+
+    # Use SQL instead of Active Record's schema dumper when creating the database.
+    # This is necessary if your schema can't be completely dumped by the schema dumper,
+    # like if you have constraints or database-specific column types
+    config.active_record.schema_format = :sql
+
+    config.action_mailer.delivery_method   = :smtp
+    config.action_mailer.smtp_settings = { :address => "smtp.gmail.com",
+                                           :port => 587,
+                                           :enable_starttls_auto => true,
+                                           :user_name => ENV['GMAIL_USERNAME'],
+                                           :password => ENV['GMAIL_PASSWORD'],
+                                           :authentication => 'plain',
+                                           :domain => 'mariwad.com.ph'
+    }
+
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
   end
 end

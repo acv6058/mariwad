@@ -12,6 +12,7 @@ gem 'ckeditor'
 gem 'paperclip','~> 3.5.3'
 gem 'aws-s3'
 gem 'aws-sdk'
+gem 'figaro', '~> 1.0.0'
 # Use sqlite3 as the database for Active Record
 
 group :development do

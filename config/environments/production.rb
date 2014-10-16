@@ -43,7 +43,7 @@ WaterDistrict::Application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -71,6 +71,9 @@ WaterDistrict::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
