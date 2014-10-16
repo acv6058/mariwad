@@ -51,7 +51,8 @@
                   <%= country_name @contact.country %><br>
                   <abbr title="Email">E:</abbr> <%= mail_to @contact.email %><br>
                   <% unless @contact.website.blank? %>
-                  <abbr title="Website">W:</abbr> <%= link_to @contact.website, @contact.website %><br>
+                  <% web_address =  @contact.website =~ /http/ ? @contact.website : "http://#{@contact.website}" %>
+                  <abbr title="Website">W:</abbr> <%= link_to web_address, web_address  %><br>
                   <% end %>
                   <abbr title="Phone">P:</abbr> <%= @contact.phone1 %><% unless @contact.phone2.blank? %>&nbsp;<%= @contact.phone2 %><% end %>
                   <% unless @contact.fax.blank? %>
