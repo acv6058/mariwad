@@ -80,4 +80,12 @@ WaterDistrict::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[Mariwad Error Notifier] ",
+    :sender_address => %{"mailer" <mailer@mariwad.com.ph>},
+    :exception_recipients => %w(warrenchaudhry@gmail.com louiecotejar@gmail.com)
+  }
+
 end

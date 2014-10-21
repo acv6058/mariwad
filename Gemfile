@@ -14,7 +14,7 @@ gem 'aws-s3'
 gem 'aws-sdk'
 gem 'figaro', '~> 1.0.0'
 # Use sqlite3 as the database for Active Record
-
+gem 'exception_notification', '~> 4.0.1'
 group :development do
   gem 'mysql2'
 end
