@@ -11,10 +11,10 @@ class Page < ActiveRecord::Base
 
   scope :root, -> {where(is_root: true).first}
   scope :contact, -> {where(is_contact: true).first}
-  scope :sections, -> {where(:show_in_menu => true, :page_id => nil, :activate => true).limit(8).order('display_order')}
+  scope :sections, -> {where(:show_in_menu => true, :page_id => nil, :activate => true).limit(8).order('display_order ASC')}
   #scope :sub_pages, -> {where('show_in_menu IS true AND (page_id IS NOT NULL ? OR page_id <> "") AND activate IS true').includes(:pages)}
   scope :active, -> {where(activate: true)}
-  scope :in_menu, -> {where(show_in_menu: true)}
+  scope :in_menu, -> {where(show_in_menu: true).order('display_order ASC')}
 
 
 

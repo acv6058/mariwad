@@ -20,7 +20,7 @@ module ApplicationHelper
   end
 
   def sections
-    sections = Page.sections
+    sections = Page.sections.order('display_order DESC')
     sections.collect {|section| concat(content_tag(:li, children(section), class: (section.has_child? ? 'dropdown':'')))}
   end
 
