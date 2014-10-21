@@ -10,9 +10,8 @@ class PagesController < ApplicationController
         render 'pages/full_page', layout: 'blank'
       end
     end
-
-
-    #render :json => @page.has_parent?
+    meta_title = "Mariveles Water District - #{@page.meta_title.blank? ? @page.page_title : @page.meta_title}"
+    @meta = { title: meta_title, description: @page.meta_description }
   end
 
   def contacts
@@ -21,6 +20,8 @@ class PagesController < ApplicationController
     @contact = Contact.first
     unless @page.nil?
       @banners = @page.banners
+      meta_title = "Mariveles Water District - #{@page.meta_title.blank? ? @page.page_title : @page.meta_title}"
+      @meta = { title: meta_title, description: @page.meta_description }
     end
   end
 end

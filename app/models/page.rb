@@ -5,6 +5,7 @@ class Page < ActiveRecord::Base
   has_many :banners, :through => :page_banners
   belongs_to  :user, :class_name => 'User', :foreign_key => :last_updated_by
   before_validation   :add_default_page_url
+  before_save :build_meta
   validates :page_title, :presence => true, :on => :save
   validates_length_of :page_url, :within => 3..255, :allow_blank => true
   validates_uniqueness_of :page_title, :page_url
@@ -26,7 +27,7 @@ class Page < ActiveRecord::Base
       self.page_url = 'contact-us'
     else
       unless self.page_id.blank?
-        parent = Page.find(self.page_id)
+        parent = self.parent
         url += "#{parent.page_url}/"
       end
       url += transliterate_link(self.page_title)
@@ -35,12 +36,18 @@ class Page < ActiveRecord::Base
     
   end
 
+  def build_meta
+    if self.meta_title.blank?
+      self.meta_title = self.page_title
+    end
+  end
+
   def has_child?
     self.pages.any?
   end
 
   def has_parent?
-    if !self.page_id.nil? && !self.page_id.blank?
+    unless self.page_id.blank?
       return true
     end
     false
