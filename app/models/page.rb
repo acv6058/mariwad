@@ -25,11 +25,11 @@ class Page < ActiveRecord::Base
     elsif is_contact?
       self.page_url = 'contact-us'
     else
-      if !page_id.blank?
-      parent = Page.find(page_id)
-      url += "#{parent.page_url}/"
+      unless self.page_id.blank?
+        parent = Page.find(self.page_id)
+        url += "#{parent.page_url}/"
       end
-      url += transliterate_link(page_title)
+      url += transliterate_link(self.page_title)
       self.page_url = url
     end
     
