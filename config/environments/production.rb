@@ -72,8 +72,8 @@ WaterDistrict::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  config.action_mailer.default_url_options = { :host => 'mariwad.com.ph' }
+  Rails.application.routes.default_url_options[:host] = 'mariwad.com.ph'
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

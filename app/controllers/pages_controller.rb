@@ -11,7 +11,8 @@ class PagesController < ApplicationController
       end
     end
     meta_title = "Mariveles Water District - #{@page.meta_title.blank? ? @page.page_title : @page.meta_title}"
-    @meta = { title: meta_title, description: @page.meta_description ? @page.meta_description : '' }
+    @meta = { title: meta_title, description: @page.meta_description.blank? ?  '' : @page.meta_description, url: "#{Rails.application.routes.default_url_options[:host]}/#{@page.page_url}" }
+    #render json: @meta
   end
 
   def contacts
@@ -21,7 +22,7 @@ class PagesController < ApplicationController
     unless @page.nil?
       @banners = @page.banners
       meta_title = "Mariveles Water District - #{@page.meta_title.blank? ? @page.page_title : @page.meta_title}"
-      @meta = { title: meta_title, description: @page.meta_description ? @page.meta_description : '' }
+      @meta = { title: meta_title, description: @page.meta_description ? @page.meta_description : '', url: "#{Rails.application.routes.default_url_options[:host]}/#{@page.page_url}" }
     end
   end
 end
