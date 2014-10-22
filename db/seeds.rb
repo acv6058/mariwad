@@ -16,11 +16,11 @@ Role.create!([
 				{ :code => 'Ed',  :name => "Editor", :is_active => true}
 			])
 end
-homepage = Page.root
+homepage = Page.where(is_root: true).first
 if homepage.nil?
 homepage = Page.create!({:page_title => 'Home', :page_url => '/', :body => '<p>Lorem ipsum dolor sit amet</p>', :activate => true ,:is_root => true})
 end
-contactpage = Page.contact
+contactpage = Page.where(is_contact: true).first
 if contactpage.nil?
 contactpage = Page.create!({:page_title => 'Contact Us', :page_url => 'contact-us', :body => '', :activate => true ,:is_contact => true})
 end

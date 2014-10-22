@@ -10,8 +10,8 @@ class Page < ActiveRecord::Base
   validates_length_of :page_url, :within => 3..255, :allow_blank => true
   validates_uniqueness_of :page_title, :page_url
 
-  scope :root, -> {where(is_root: true).first}
-  scope :contact, -> {where(is_contact: true).first}
+  scope :root, -> {where(is_root: true)}
+  scope :contact, -> {where(is_contact: true)}
   scope :sections, -> {where(:show_in_menu => true, :page_id => nil, :activate => true).limit(8).order('display_order ASC')}
   #scope :sub_pages, -> {where('show_in_menu IS true AND (page_id IS NOT NULL ? OR page_id <> "") AND activate IS true').includes(:pages)}
   scope :active, -> {where(activate: true)}
@@ -33,7 +33,7 @@ class Page < ActiveRecord::Base
       url += transliterate_link(self.page_title)
       self.page_url = url
     end
-    
+
   end
 
   def build_meta

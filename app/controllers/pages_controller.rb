@@ -17,7 +17,7 @@ class PagesController < ApplicationController
 
   def contacts
     @banners = []
-    @page = Page.contact
+    @page = Page.where(is_contact: true).first
     @contact = Contact.first
     unless @page.nil?
       @banners = @page.banners
