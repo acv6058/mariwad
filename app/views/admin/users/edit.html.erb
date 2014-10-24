@@ -106,7 +106,7 @@
                     <div class="form-group clearfix">
                       <%= f.label :gender, "Gender", :class => "col-md-2 control-label" %>
                       <div class="col-md-2">
-                        <%= f.select :gender, options_for_select([ "Male", "Female" ]), {:include_blank => true}, :class => "form-control" %>
+                        <%= f.select :gender, options_for_select([ "Male", "Female" ], selected: @user.gender), {:include_blank => true}, :class => "form-control" %>
                       </div>
                     </div>
                 </div>

@@ -5,16 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-admin = User.find_by_username('admin')
-if admin.nil?
-admin = User.create!([{ :username => 'admin',  :first_name => "Admin", :last_name => "User", :email => 'user@example.com', :password => 'password1234', :password_confirmation => 'password1234', :role_id => 1, :status => 1}])
-end
 roles = Role.all
 if roles.empty?
 Role.create!([
-				{ :code => 'Adm',  :name => "Admin", :is_active => true},
-				{ :code => 'Ed',  :name => "Editor", :is_active => true}
-			])
+        { :code => 'Adm',  :name => "Admin", :is_active => true},
+        { :code => 'Ed',  :name => "Editor", :is_active => true}
+      ])
+end
+admin_role = Role.find_by_name('Admin')
+admin = User.find_by_username('admin')
+if admin.nil?
+admin = User.create!([{ :username => 'admin',  :first_name => "Admin", :last_name => "User", :email => 'user@example.com', :password => 'password1234', :password_confirmation => 'password1234', :role_id => admin_role.try(:id), :status => 1}])
 end
 homepage = Page.where(is_root: true).first
 if homepage.nil?

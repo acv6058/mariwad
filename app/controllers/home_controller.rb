@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   layout 'home'
-  include ActionView::Helpers::AssetUrlHelper
+  
   def index
     @banners = Banner.where('featured = ? AND activate = ?', true, true)
     @page = Page.where(is_root: true).first

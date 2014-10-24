@@ -58,6 +58,9 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'pry-rescue', '~> 1.4.1'
+  gem 'jazz_hands', '~> 0.5.2'
+  gem 'quiet_assets', '~> 1.0.3'
 end
 
 group :test do
