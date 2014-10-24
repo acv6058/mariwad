@@ -240,11 +240,19 @@ h3.col-header {}
 }
 
 #highlights-holder {
-    min-height: 268px;
+    height: 270px;
 }
 
 #highlights-holder .article {
-    padding-right: 20px;
+  margin-left: 0px;
+  padding: 5px 10px;
+  width:100%;
+  a.h-news-link {
+    display: block;
+    font-size:14px;
+    font-weight: bold;
+  }
+  
 }
 
 .page-divider {
@@ -258,11 +266,13 @@ h3.col-header {}
 }
 
 /* Responsive Styles */
-@media (max-width: 767px) {
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
 
-    .carousel {
-        height: 180px;
-    }
+  .carousel {
+    height: 180px;
+  }
   .carousel .item {
     height: 180px;
   }
@@ -270,17 +280,49 @@ h3.col-header {}
     height: 180px;
   }
 
-    .carousel .carousel-inner {
-        height: 100%;
-        /* increases the carousel height so it looks good on phones */
+  .carousel .carousel-inner {
+    height: 100%;
+    /* increases the carousel height so it looks good on phones */
+  }
+  .fill {
+    .carousel-caption {
+      top: -40px;
     }
-    .fill img {
-        width: 100%;
-        height:180px;
+    img {
+      width: 100%;
+      height:180px;
     }
+  }
+}
+
+@media (min-width : 481px) and (max-width: 767px) {
+
+  .carousel {
+      height: 210px;
+  }
+  .carousel .item {
+    height: 210px;
+  }
+  .carousel-control {
+    height: 210px;
+  }
+
+  .carousel .carousel-inner {
+      height: 100%;
+      /* increases the carousel height so it looks good on phones */
+  }
+  .fill {
+    .carousel-caption {
+      top: -10px;
+    }
+    img {
+      width: 100%;
+      height:210px;
+    }
+  }
 }
 /* Responsive Styles */
-@media (max-width: 960px) {
+@media (min-width: 768px) and (max-width: 960px) {
    #map-canvas {
      height:200px;
      padding-bottom: 20px;

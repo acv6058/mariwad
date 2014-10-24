@@ -10,18 +10,6 @@
         .col-xs-12 {
             background-color: #fff;
         }
-        #sidebar {
-            height: 100%;
-            padding-right: 0;
-            padding-top: 20px;
-        }
-        #sidebar .nav {
-            width: 95%;
-        }
-        #sidebar li {
-            border:0 #f2f2f2 solid;
-            border-bottom-width:1px;
-        }
 
         /* collapsed sidebar styles */
         @media screen and (max-width: 767px) {
@@ -51,38 +39,6 @@
                 top: 0;
                 width: 41.6%;
             }
-            #sidebar {
-                background-color:#3b3b3b;
-                padding-top:0;
-            }
-            #sidebar .nav>li {
-                color: #ddd;
-                background: linear-gradient(#3E3E3E, #383838);
-                border-top: 1px solid #484848;
-                border-bottom: 1px solid #2E2E2E;
-            }
-            #sidebar .nav>li:first-child {
-                border-top:0;
-            }
-            #sidebar .nav>li>a {
-                color: #ddd;
-            }
-            #sidebar .nav>li>a>img {
-                max-width: 14px;
-            }
-            #sidebar .nav>li>a:hover, #sidebar .nav>li>a:focus {
-                text-decoration: none;
-                background: linear-gradient(#373737, #323232);
-                color: #fff;
-            }
-            #sidebar .nav .caret {
-                border-top-color: #fff;
-                border-bottom-color: #fff;
-            }
-            #sidebar .nav a:hover .caret{
-                border-top-color: #fff;
-                border-bottom-color: #fff;
-            }
         }
 
 
@@ -97,13 +53,18 @@
 
       <!-- main area -->
       <div class="col-xs-12 col-sm-9" style="min-height:320px;">
-        <h1><%= @page.page_title %></h1>
+      	<div class="page-header">
+	      	<h1>
+	      		<%= @page.page_title %> 
+	      		<% unless @page.page_subtitle.blank? %>
+	      		<small><%= @page.page_subtitle %></small>
+	      		<% end %>
+	  		</h1>	
+      	</div>
+        
         <!-- <div class="fb-like pull-right" data-href="<#%= request.fullpath %>" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></h1> -->
-
-        <h2><%= @page.page_subtitle %></h2>
-        <hr>
-        <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_native_toolbox"></div>
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+		<div class="addthis_native_toolbox"></div>
         <%= raw(@page.body) %>
 
       </div><!-- /.col-xs-12 main -->
