@@ -123,20 +123,6 @@
       if($('#li-' + current_page).length > 0){
           $('#li-' + current_page).addClass('active');
       }
-		  CKEDITOR.replace( 'page_body', {
-				allowedContent: {
-					'b i ul ol big small': true,
-					'h1 h2 h3 p blockquote li': {
-						styles: 'text-align'
-					},
-					a: { attributes: '!href,target' },
-					img: {
-						attributes: '!src,alt',
-						styles: 'width,height',
-						classes: 'left,right'
-					}
-				}
-			} );
 
   })
 </script>
