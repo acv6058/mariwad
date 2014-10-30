@@ -1,3 +1,1 @@
-CKEDITOR.replace( 'page_body', {
-    allowedContent: true
-} );
+CKEDITOR.config.allowedContent = true;
