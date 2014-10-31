@@ -8,6 +8,7 @@ Ckeditor.setup do |config|
 
   config.assets_languages = ['en', 'fr']
   config.assets_plugins = ['image', 'smiley']
+  # config.extraAllowedContent = 'a[!href,document-href]';
 
   # Allowed image file types for upload.
   # Set to nil or [] (empty array) for all file types

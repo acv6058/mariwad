@@ -11,7 +11,6 @@
 // about supported directives.
 //= require js/jquery-1.10.2
 //= require jquery_ujs
-//= require ckeditor/override
 //= require ckeditor/init
 //= require js/bootstrap.min.js
 
