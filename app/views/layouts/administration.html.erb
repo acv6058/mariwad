@@ -111,6 +111,8 @@
 
 <%= yield(:page_scripts) %>
 <script>
+	CKEDITOR.config.allowedContent = true;
+
   $(function(){
 	  $('.selectpicker').selectpicker();
 	  $('.fileinput').fileinput();
@@ -123,8 +125,7 @@
       if($('#li-' + current_page).length > 0){
           $('#li-' + current_page).addClass('active');
       }
-
-  })
+	})
 </script>
 </body>
 </html>
