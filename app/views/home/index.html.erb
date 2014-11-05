@@ -1,19 +1,119 @@
 <% content_for :page_styles do %>
-<style>
-<% unless @page.page_styles.nil? || !@page.page_styles.blank? %>
-<%= raw(@page.page_styles) %>
-<% end %>
-</style>
+    <style>
+        <% unless @page.page_styles.nil? || !@page.page_styles.blank? %>
+        <%= raw(@page.page_styles) %>
+        <% end %>
+    </style>
 <% end %>
 <% content_for :page_content do %>
-    <%= raw(@page.body) %>
+    <!--home page content starts here -->
+    <hr>
+    <div class="row">
+      <div class="col-md-8">
+
+        <div id="highlights-holder" class="row-fluid">
+          <h4 style="background:#293541;padding:10px 10px;color:#fff;">Latest News</h4>
+          <div id="h-loader" style="position: absolute; left: 45%; top: 100px; display: none;"><i style="font-size:60px;" class="fa fa-spinner fa-spin"></i></div>
+          <!-- short-article starts here -->
+          <% 5.times do |i| %>
+              <div id="art-<%= i %>" class="article row" style="display:none;">
+                <h4 style="">
+                  <a href="http://s3.amazonaws.com/mariwad/banners/4/large/banner10.jpg" data-toggle="lightbox" title="About Us">
+                    <img src="http://s3.amazonaws.com/mariwad/banners/4/large/banner10.jpg" class="img-responsive icon pull-left">
+                  </a>
+                  <a class="h-news-link" href="#">Lorem ipsum dolor sit amet</a>
+                  <small>October 20, 2014</small>
+                </h4>
+                <div class="clearfix"></div>
+                <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor in sit dolore amet sit esse nostrud tempor nulla consequat aute in nostrud laboris sint ullamco amet nisi pariatur officia nulla pariatur in id et labore dolore ad sit.</p>
+                <a class="btn btn-sm btn-primary pull-right" href="#">Read More »</a>
+              </div>
+          <% end %>
+          <hr>
+          <!-- short-article ends here -->
+        </div>
+
+        <div class="row-fluid" style="margin-top:10px;">
+          <div class="col-md-4" style="height:350px;">
+            <h4 style="background:#293541;padding:10px 10px;color:#fff;">Feature 1</h4>
+            <div style="padding:5px 10px;">
+              <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+                <small>October 20, 2014</small></h5>
+              <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor in sit dolore amet sit esse nostrud tempor nulla consequat aute in nostrud laboris sint ullamco amet...</p>
+              <hr>
+              <p><a class="btn btn-sm btn-primary pull-right" href="#">Read More »</a></p>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="col-md-4" style="height:350px;">
+            <h4 style="background:#293541;padding:10px 10px;color:#fff;">Feature 2</h4>
+            <div style="padding:5px 10px;">
+              <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+                <small>October 20, 2014</small></h5>
+              <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor in sit dolore amet sit esse nostrud tempor nulla consequat aute in nostrud laboris sint ullamco amet...</p>
+              <hr>
+              <p><a class="btn btn-sm btn-primary pull-right" href="#">Read More »</a></p>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div class="col-md-4" style="height:350px;">
+            <h4 style="background:#293541;padding:10px 10px;color:#fff;">Feature 3</h4>
+            <div style="padding:5px 10px;">
+              <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+                <small>October 20, 2014</small></h5>
+              <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor in sit dolore amet sit esse nostrud tempor nulla consequat aute in nostrud laboris sint ullamco amet...</p>
+              <hr>
+              <p><a class="btn btn-sm btn-primary pull-right" href="#">Read More »</a></p>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="row-fluid">
+          <h4 style="background:#293541;padding:10px 10px;color:#fff;">Advisory</h4>
+          <div style="padding:5px 10px;border-bottom:1px solid #ccc;">
+            <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+              <small>October 20, 2014</small></h5>
+            <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor...</p>
+          </div>
+          <div style="padding:5px 10px;">
+            <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+              <small>October 20, 2014</small></h5>
+            <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor...</p>
+          </div>
+        </div>
+        <div class="row-fluid">
+          <h4 style="background:#293541;padding:10px 10px;color:#fff;">Upcoming Events</h4>
+          <div style="padding:5px 10px;border-bottom:1px solid #ccc;">
+            <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+              <small>October 20, 2014</small></h5>
+            <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor...</p>
+          </div>
+          <div style="padding:5px 10px;border-bottom:1px solid #ccc;">
+            <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+              <small>October 20, 2014</small></h5>
+            <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor...</p>
+          </div>
+          <div style="padding:5px 10px;">
+            <h5><a class="" style="display:block;" href="#">Lorem ipsum dolor sit amet</a>
+              <small>October 20, 2014</small></h5>
+            <p>Lorem ipsum Ex aliqua tempor nisi laboris dolor id laborum irure minim tempor...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="clearfix"></div>
+    <!--home page content ends here -->
 
 <% end %>
 
 <% content_for :page_scripts do %>
-<script type="text/javascript">
-  $(function(){
+    <script type="text/javascript">
+        $(function(){
 
-  });
-</script>
+        });
+    </script>
 <% end %>
